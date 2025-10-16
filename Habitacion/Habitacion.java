@@ -6,24 +6,17 @@ public class Habitacion {
     private int numero;
     private String tipo;
     private double precioBase;
-    private ServicioExtra[] serviciosContratados;
+    private ServicioExtra[] serviciosContratados = new ServicioExtra[10];
     private int contador;
     private double costoServicios;
     
-    public Habitacion(){   
-        this.numero = 0;
-        this.tipo = "";
-        this.precioBase = 0.0;
-        this.serviciosContratados = new ServicioExtra[10]; // Capacidad para 10 servicios extras
-        this.contador = 0;
-        this.costoServicios = 0.0;
-    }
 
-    public Habitacion(int numero, String tipo, double precioBase, ServicioExtra[] serviciosContratados) {
+    public Habitacion(int numero, String tipo, double precioBase) {
         this.numero = numero;
         this.tipo = tipo;
         this.precioBase = precioBase;
-        this.serviciosContratados = serviciosContratados;
+        this.contador = 0;
+        this.costoServicios = 0.0;
     }
 
     public int getNumero() {
@@ -53,14 +46,10 @@ public class Habitacion {
     public ServicioExtra[] getServiciosContratados() {
         return serviciosContratados;
     }
-    public void setServiciosContratados(ServicioExtra[] serviciosContratados) {
-        this.serviciosContratados = serviciosContratados;
-    }
 
     public void  agregarServicio(ServicioExtra servicio){
         this.serviciosContratados[contador] = servicio;
         contador++;
-
     }
 
     public double calcularCostoTotal(){
@@ -74,12 +63,10 @@ public class Habitacion {
 
     
     public void mostrarHabitacion(){
-
         System.out.println("Numero de habitacion: "+this.numero);
         System.out.println("Tipo de habitacion: "+this.tipo);
         System.out.println("Precio base: "+this.precioBase);
         System.out.println("Servicios contratados: "+this.contador);
-
     }
 
 }
